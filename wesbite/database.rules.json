@@ -1,0 +1,55 @@
+{
+  "rules": {
+    "lockboxes": {
+      "$lockboxId": {
+        ".read": "auth != null",
+        ".write": "auth != null && (!data.child('owner').exists() || data.child('owner').val() === auth.uid)",
+        
+        "requests": {
+          "$requestId": {
+            ".write": "auth != null",
+            "status": { 
+              ".validate": "newData.val() === 'APPROVED' || newData.val() === 'REJECTED' || newData.val() === 'EXPIRED' || newData.val() === 'PENDING' || newData.val() === 'AWAITING_VERIFICATION' || newData.val() === 'COMPLETED'" 
+            },
+            "approvedDuration": { 
+              ".validate": "newData.isNumber() && newData.val() > 0" 
+            },
+            "preApproved": {
+               ".validate": "newData.isBoolean()"
+            },
+             "preApprovalId": {
+               ".validate": "newData.isString()"
+            },
+            "auditLog": {
+               ".validate": "newData.hasChildren() || true"
+            }
+          }
+        },
+        "lockbox": {
+          ".write": "auth != null",
+          "state": {
+             ".validate": "newData.val() === 'locked' || newData.val() === 'unlocked' || newData.val() === 'LOCKED' || newData.val() === 'UNLOCKED'"
+          },
+          "buzzer": {
+            ".validate": "newData.hasChildren(['enabled', 'pattern'])",
+            "enabled": { ".validate": "newData.isBoolean()" },
+            "pattern": { ".validate": "newData.isString()" },
+            "durationMs": { ".validate": "newData.isNumber()" }
+          }
+        },
+        "preApprovals": {
+          ".read": "auth != null",
+          ".write": "auth != null",
+          "$approvalId": {
+             "name": { ".validate": "newData.isString()" },
+             "phone": { ".validate": "newData.isString()" },
+             "approvalDate": { ".validate": "newData.isString()" },
+             "duration": { ".validate": "newData.isNumber()" },
+             "used": { ".validate": "newData.isBoolean()" },
+             "usedAt": { ".validate": "newData.isNumber()" }
+          }
+        }
+      }
+    }
+  }
+}

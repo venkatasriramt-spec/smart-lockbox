@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background colors */
+    --background: 48 100% 97%; /* Light cream #FFFBF0 */
+    --foreground: 0 0% 3%; /* Dark text */
+    
+    /* Semantic Colors */
+    --primary: 161 94% 30%; /* Emerald Green #059669 */
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 330 81% 60%; /* Vibrant Pink #EC4899 */
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 161 94% 30%; /* Emerald Green #059669 */
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%; /* Red #EF4444 */
+    --destructive-foreground: 0 0% 100%;
+
+    --muted: 0 0% 62%; /* Gray #9CA3AF */
+    --muted-foreground: 0 0% 40%;
+    
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 3%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3%;
+    
+    --border: 0 0% 89%; /* Light gray #E5E7EB */
+    --input: 210 20% 96%; /* Light gray #F3F4F6 */
+    --ring: 24 100% 48%; /* Bright Orange #EA580C */
+    
+    --radius: 0.75rem; /* 12px */
+  }
+
+  .dark {
+    /* Using same for dark mode just to satisfy requirements, though app seems light-themed focused */
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    
+    --primary: 161 94% 30%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 330 81% 60%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --accent: 161 94% 30%;
+    --accent-foreground: 210 40% 98%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 24 100% 48%;
+  }
+
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 transition-all duration-300;
+  }
+  .modern-card {
+    @apply bg-card text-card-foreground rounded-[12px] shadow-lg hover:shadow-xl border border-border/50 transition-all duration-300;
+  }
+  
+  /* OTP specific styles */
+  .otp-input-container {
+    @apply flex justify-center gap-2 sm:gap-4 my-6;
+  }
+  
+  .otp-digit {
+    @apply w-12 h-14 sm:w-14 sm:h-16 text-center text-2xl font-bold rounded-xl border-2 transition-all shadow-inner focus:outline-none;
+  }
+
+  /* Countdown & Rate Limiting Styles */
+  .countdown-timer {
+    @apply inline-flex items-center text-current opacity-90;
+    animation: pulse-soft 2s infinite;
+  }
+
+  .disabled-btn-state:disabled {
+    @apply opacity-70 cursor-not-allowed transform-none hover:scale-100;
+    filter: grayscale(20%);
+  }
+  
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.9; }
+    50% { opacity: 0.7; }
+  }
+}
