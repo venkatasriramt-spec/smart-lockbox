@@ -70,7 +70,7 @@ git clone https://github.com/venkatasriramt-spec/smart-lockbox.git
 cd smart-lockbox
 
 ### 2. Website Setup
-- cd website\n
+- cd website
 - npm install
 - npm start
 
