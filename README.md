@@ -70,15 +70,15 @@ git clone https://github.com/venkatasriramt-spec/smart-lockbox.git
 cd smart-lockbox
 
 ### 2. Website Setup
-cd website\n
-npm install
-npm start
+- cd website\n
+- npm install
+- npm start
 
 Configure Firebase inside your project (use your own credentials).
 
 3. ESP32 Setup
-Open the .ino file from the esp32/ folder in Arduino IDE
-Install required libraries:
+- Open the .ino file from the esp32/ folder in Arduino IDE
+- Install required libraries:
 WiFi.h
 Firebase ESP Client
 ESP32Servo
