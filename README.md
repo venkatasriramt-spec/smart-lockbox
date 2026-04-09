@@ -76,42 +76,41 @@ cd smart-lockbox
 
 Configure Firebase inside your project (use your own credentials).
 
-3. ESP32 Setup
+### 3. ESP32 Setup
 - Open the .ino file from the esp32/ folder in Arduino IDE
 - Install required libraries:
-WiFi.h
-Firebase ESP Client
-ESP32Servo
-Update credentials:
-#define WIFI_SSID "YOUR_WIFI_NAME"
-#define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
-#define API_KEY "YOUR_FIREBASE_API_KEY"
-#define DATABASE_URL "YOUR_FIREBASE_DATABASE_URL"
-Upload code to ESP32
+- WiFi.h
+- Firebase ESP Client
+- ESP32Servo
+- Update credentials:
+- - #define WIFI_SSID "YOUR_WIFI_NAME"
+- - #define WIFI_PASSWORD "YOUR_WIFI_PASSWORD"
+- - #define API_KEY "YOUR_FIREBASE_API_KEY"
+- - #define DATABASE_URL "YOUR_FIREBASE_DATABASE_URL"
+- Upload code to ESP32
 
-🔄 Working Principle
-User sends command from web app
-Firebase updates database
-ESP32 listens to changes using stream API
-ESP32 executes action:
-Servo opens/closes lockbox
-Buzzer triggers if needed
-Sensor detects key presence
-Status is sent back to Firebase
-UI updates in real time
+## 🔄 Working Principle
+- User sends command from web app
+- Firebase updates database
+- ESP32 listens to changes using stream API
+- ESP32 executes action:
+- Servo opens/closes lockbox
+- Buzzer triggers if needed
+- Sensor detects key presence
+- Status is sent back to Firebase
+- UI updates in real time
 
-📊 Key Functional Modules
-Control Module → Lock/Unlock commands
-Sensing Module → Ultrasonic key detection
-Actuation Module → Servo motor control
-Alert Module → Buzzer notifications
-Cloud Sync Module → Firebase communication
+## 📊 Key Functional Modules
+- Control Module → Lock/Unlock commands
+- Sensing Module → Ultrasonic key detection
+- Actuation Module → Servo motor control
+- Alert Module → Buzzer notifications
+- Cloud Sync Module → Firebase communication
 
-👨‍💻 Author
+## 👨‍💻 Author
 
 Venkata Sriram Topalli
-B.Tech Student
 
-📄 License
+## 📄 License
 
 This project is for academic and educational purposes.
