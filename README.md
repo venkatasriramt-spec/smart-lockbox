@@ -165,7 +165,7 @@ More screenshots in [`docs/images/`](docs/images/).
 
 ## 👨‍💻 Author
 
-Venkata Sriram Topalli\n
+Venkata Sriram Topalli<br>
 Vellore Institute of Technology, Vellore, India
 
 ## 📄 License
